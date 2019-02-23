@@ -1,11 +1,11 @@
 #################
-##### 物品 #####
+##### ITEMS #####
 #################
 
 item.colored_redstone_dust.name=彩色红石(%1$s)
 
 ##################
-##### 方块 #####
+##### BLOCKS #####
 ##################
 
 tile.colored_redstone_block.name=彩色红石块(%1$s)
@@ -15,7 +15,7 @@ tile.unpowered_colored_redstone_comparator.name=彩色红石比较器(%1$s)
 tile.colored_redstone_lamp.name=彩色红石灯(%1$s)
 
 ############################
-##### 通用工具 #####
+##### GENERIC TOOLTIPS #####
 ############################
 
 coloredredstone.color.red=红色
@@ -46,11 +46,14 @@ coloredredstone.tooltip.withering=凋零
 coloredredstone.tooltip.sluggish=迟缓
 coloredredstone.tooltip.speedy=速度
 coloredredstone.tooltip.healthy=再生
+coloredredstone.tooltip.alienated=末影
+coloredredstone.tooltip.fishy=钓鱼
+coloredredstone.tooltip.soft=柔软
+coloredredstone.tooltip.edible=可食
 
 ##################
-##### 配置 #####
+##### CONFIG #####
 ##################
-
 coloredredstone.config.title=彩色红石的配置
 coloredredstone.config.colored_names=彩色名字和提示
 coloredredstone.config.in_world_recoloring=世界中颜色变更
@@ -78,6 +81,19 @@ coloredredstone.config.colored_properties.speedy_duration=持续速度时间
 coloredredstone.config.colored_properties.healthy=再生
 coloredredstone.config.colored_properties.healthy_chance=再生几率
 coloredredstone.config.colored_properties.healthy_duration=持续再生时间
+coloredredstone.config.colored_properties.alienated=末影
+coloredredstone.config.colored_properties.alienated_chance=末影几率
+coloredredstone.config.colored_properties.fishy=钓鱼
+coloredredstone.config.colored_properties.fishy_chance=钓鱼几率
+coloredredstone.config.colored_properties.soft=柔软
+coloredredstone.config.colored_properties.soft_reduction=柔软伤害减少
+coloredredstone.config.colored_properties.edible=可食
+coloredredstone.config.colored_properties.edible_hunger=可食-饥饿点
+coloredredstone.config.colored_properties.edible_saturation=可食-饱和点
+coloredredstone.config.colored_properties.edible_saturation_chance=可食-饱和机会
+coloredredstone.config.colored_properties.edible_saturation_duration=可食-饱和持续时间
+coloredredstone.config.colored_properties.edible_nausea_chance=可食-反胃机会
+coloredredstone.config.colored_properties.edible_nausea_duration=可食-反胃持续时间
 
 coloredredstone.config.integration=Mods兼容
 coloredredstone.config.integration.chisel=Chisel-凿子

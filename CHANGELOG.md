@@ -1,4 +1,7 @@
 # CHANGELOG
+## 1.3.1
+### Changed
+- Updated Chinese translation.
 ## 1.3.0
 ### Added
 - New colored property - Alienated - cyan blocks have a chance to drop Enderman loot instead of actual block item. Default: 5% chance to drop.
