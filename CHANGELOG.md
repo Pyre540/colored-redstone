@@ -1,4 +1,8 @@
 # CHANGELOG
+## 1.3.2
+### Fixed
+- Fixed game crash when loading world with existing redstone comparators. Closes #5
+- Fixed colored redstone comparator resetting its color after world reload.
 ## 1.3.1
 ### Changed
 - Updated Chinese translation.

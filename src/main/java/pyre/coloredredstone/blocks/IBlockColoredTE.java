@@ -1,8 +1,10 @@
 package pyre.coloredredstone.blocks;
 
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.ChunkCache;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraft.world.chunk.Chunk;
 import pyre.coloredredstone.util.EnumColor;
 
 import javax.annotation.Nullable;
@@ -12,7 +14,9 @@ public interface IBlockColoredTE<TE extends TileEntityColored> extends IBlockCol
     @Nullable
     @SuppressWarnings("unchecked")
     default TE getTileEntity(IBlockAccess world, BlockPos pos) {
-        return (TE) world.getTileEntity(pos);
+        return (TE) (world instanceof ChunkCache ?
+                ((ChunkCache) world).getTileEntity(pos, Chunk.EnumCreateEntityType.CHECK) :
+                world.getTileEntity(pos));
     }
 
     @Override

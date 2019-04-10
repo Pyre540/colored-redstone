@@ -21,9 +21,11 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.world.ChunkCache;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraft.world.chunk.Chunk;
 import net.minecraftforge.fml.relauncher.ReflectionHelper;
 import pyre.coloredredstone.ColoredRedstone;
 import pyre.coloredredstone.config.CurrentModConfig;
@@ -83,6 +85,25 @@ public class BlockColoredRedstoneComparator extends BlockRedstoneComparator impl
     @Override
     public TileEntity createTileEntity(World world, IBlockState state) {
         return new TileEntityColoredRedstoneComparator(state.getValue(COLOR));
+    }
+
+    @Nullable
+    @Override
+    public TileEntityColoredRedstoneComparator getTileEntity(IBlockAccess world, BlockPos pos) {
+        TileEntity tileEntity =  world instanceof ChunkCache ?
+                        ((ChunkCache) world).getTileEntity(pos, Chunk.EnumCreateEntityType.CHECK) :
+                        world.getTileEntity(pos);
+        if (world instanceof World && !(tileEntity instanceof TileEntityColoredRedstoneComparator)) { //fix block and te if it's vanilla one
+            ((World)world).removeTileEntity(pos);
+            IBlockState originalBlockstate = world.getBlockState(pos);
+            IBlockState newBlockState = this.getDefaultState().withProperty(FACING, originalBlockstate.getValue(FACING))
+                    .withProperty(MODE, originalBlockstate.getValue(MODE))
+                    .withProperty(POWERED, originalBlockstate.getValue(POWERED));
+            ((World)world).setBlockState(pos, newBlockState);
+
+            return (TileEntityColoredRedstoneComparator) world.getTileEntity(pos);
+        }
+        return (TileEntityColoredRedstoneComparator) tileEntity;
     }
 
     @SuppressWarnings("deprecation")

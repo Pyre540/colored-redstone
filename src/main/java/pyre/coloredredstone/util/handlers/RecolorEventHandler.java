@@ -1,6 +1,7 @@
 package pyre.coloredredstone.util.handlers;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockRedstoneComparator;
 import net.minecraft.block.BlockRedstoneTorch;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -109,7 +110,7 @@ public class RecolorEventHandler {
     @SubscribeEvent
     public static void changeRedstoneComparatorColor(PlayerInteractEvent.RightClickBlock event) {
         if (CurrentModConfig.inWorldRecoloring && event.getEntityPlayer().isSneaking()) {
-            changeTileEntityColor(event, BlockColoredRedstoneComparator.class, SHRINK_COMPARATOR);
+            changeTileEntityColor(event, BlockRedstoneComparator.class, SHRINK_COMPARATOR);
         }
     }
 
